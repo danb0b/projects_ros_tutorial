@@ -1,3 +1,35 @@
+---
+---
+
+## Navigating the Ros Filesystem (optional)
+
+From [here](https://wiki.ros.org/ROS/Tutorials/NavigatingTheFilesystem)
+
+```bash
+#sudo apt-get install ros-<distro>-ros-tutorials
+sudo apt-get install ros-melodic-ros-tutorials
+#rospack find [package_name]
+rospack find roscpp
+#roscd [locationname[/subdir]]
+roscd roscpp
+#print the working directory using the Unix command
+pwd
+#To see what is in your ROS_PACKAGE_PATH, type:
+echo $ROS_PACKAGE_PATH
+
+#roscd can also move to a subdirectory of a package or stack.  Try:
+roscd roscpp/cmake
+pwd
+
+#roscd log will take you to the folder where ROS stores log files. Note that if you have not run any ROS programs yet, this will yield an error saying that it does not yet exist.
+#If you have run some ROS program before, try:
+roscd log
+
+#rosls is part of the rosbash suite. It allows you to ls directly in a package by name rather than by absolute path.
+#rosls [locationname[/subdir]]
+rosls roscpp_tutorials
+```
+
 ## Create A Package
 
 From [here](https://wiki.ros.org/ROS/Tutorials/CreatingPackage)

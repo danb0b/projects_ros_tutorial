@@ -1,12 +1,20 @@
-1 add usb device for thorlabs in vm settings
+---
+---
 
+## Introduction
+
+These instructions are for loading and running the thorlabs linear stage in ROS.  This is not yet finished
+
+## Instructions
+
+1. In the host virtualbox settings, add a filter for the  thorlabs usb device.
 1. open virtualbox
+1. add rules to linux system.  These are located
 
-1. add rules to linux system
-```bash
-sudo cp 99-thorlabs.rules /etc/udev/rules.d
-sudo udevadm control --reload-rules && udevadm trigger
-```
+    ```bash
+    sudo cp 99-thorlabs.rules /etc/udev/rules.d
+    sudo udevadm control --reload-rules && udevadm trigger
+    ```
 
 <!--
 1. download ftd2xx drivers(see downloads below)
@@ -39,24 +47,31 @@ pip3 install ftd2xx
 <!--
 -->
 
-1. clone idealab tools
-```bash
-git clone https://github.com/idealabasu/code_idealab_tools.git
-```
+1. clone idealab tools (if not already done)
+
+    ```bash
+    git clone https://github.com/idealabasu/code_idealab_tools.git
+    ```
+    
 1. add git-based packages to python path
-```bash
-echo "export PYTHONPATH=\$PYTHONPATH:~/code_idealab_tools/python" >> ~/.bashrc
-source ~/.bashrc
-```
+
+    ```bash
+    echo "export PYTHONPATH=\$PYTHONPATH:~/code_idealab_tools/python" >> ~/.bashrc
+    source ~/.bashrc
+    ```
+
 1. clone thorlabs linear stage code
-```bash
-git clone https://github.com/idealabasu/code_devices_thorlabs_linear_stage.git
-```
+
+    ```bash
+    git clone https://github.com/idealabasu/code_devices_thorlabs_linear_stage.git
+    ```
+
 1. add git-based packages to python path
-```bash
-echo "export PYTHONPATH=\$PYTHONPATH:~/code_devices_thorlabs_linear_stage/python" >> ~/.bashrc
-source ~/.bashrc
-```
+
+    ```bash
+    echo "export PYTHONPATH=\$PYTHONPATH:~/code_devices_thorlabs_linear_stage/python" >> ~/.bashrc
+    source ~/.bashrc
+    ```
 <!--
 -->
 

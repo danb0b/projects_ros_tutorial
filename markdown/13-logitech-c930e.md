@@ -1,25 +1,38 @@
-1. install virtualbox extension pack: <https://www.virtualbox.org/wiki/Downloads>
+---
+---
+
+# Using a USB webcam (with virtualbox)
+
+## Introduction
+
+Making a usb webcam work in Linux AND virtualbox is not as easy as it sounds.  These instructions were validated for the C930 Webcam by Logitech.  Some steps need to change to make other cameras work.  For this tutorial to work, the camera should be "UVC compliant"
+
+You need to follow slightly different steps if you want to provide access to a built-in camera on your computer.  This is possible but some of the USB-specific instructions will not work, as it won't be necessarily recognized as a usb device using libusb
+
+## Instructions
+
+1. Make sure you have installed the virtualbox extension pack: <https://www.virtualbox.org/wiki/Downloads>
 1. check virtualbox usb settings to ensure usb is set at 3.0 to get high speed working.
 1. make sure usb filter is set for usb webcam.
 1. make sure your user is part of vboxusers group, per this suggestion (you may have already done this in a previous tutorial): [reference](https://askubuntu.com/questions/4875/how-can-i-use-my-webcam-with-ubuntu-running-in-virtualbox)
 
-      1. check if your vboxusers displays in this command :
+    1. check if your vboxusers displays in this command :
 
-      ```
-      groups
-      ```
-      
-      1. add yourself
-      
-      ```bash
-      sudo usermod -a -G vboxusers $(whoami)
-      ```
+        ```
+        groups
+        ```
+    
+    1. add yourself
+    
+        ```bash
+        sudo usermod -a -G vboxusers $(whoami)
+        ```
 
-      1. Logout & login again , check if your vboxusers displays in this command :
+    1. Logout & login again , check if your vboxusers displays in this command :
 
-      ```
-      groups
-      ```
+        ```
+        groups
+        ```
 
 1. install uvc stuff.
 
@@ -50,20 +63,20 @@
       sudo usermod -a -G video $(whoami)
       ```
 
-      1. Logout & login again , check if your vboxusers displays in this command
+1. Logout & login again , check if your vboxusers displays in this command
 
-      ```
-      groups
-      ```
+    ```
+    groups
+    ```
       
 1. copy rules from idealab_ros_tools to rules folder (according to this [ref](http://wiki.ros.org/libuvc_camera))
 
-```bash
-cd ~/code_idealab_ros/src
-sudo cp 99-uvc-c930.rules /etc/udev/rules.d/
-sudo cp 99-uvc-vboxcam.rules /etc/udev/rules.d/
-sudo udevadm control --reload-rules && udevadm trigger
-```
+    ```bash
+    cd ~/code_idealab_ros/src
+    sudo cp 99-uvc-c930.rules /etc/udev/rules.d/
+    sudo cp 99-uvc-vboxcam.rules /etc/udev/rules.d/
+    sudo udevadm control --reload-rules && udevadm trigger
+    ```
 
 1. if that doesn't work just 
 
@@ -128,13 +141,13 @@ sudo udevadm control --reload-rules && udevadm trigger
         
 ## References
 
-* https://www.virtualbox.org/wiki/Downloads
-* https://www.kurokesu.com/main/2016/01/16/manual-usb-camera-settings-in-linux/
-* http://wiki.ros.org/libuvc_camera
-* https://askubuntu.com/questions/4875/how-can-i-use-my-webcam-with-ubuntu-running-in-virtualbox)
-* https://msadowski.github.io/ros-web-tutorial-pt2-cameras/
+* <https://www.virtualbox.org/wiki/Downloads>
+* <https://www.kurokesu.com/main/2016/01/16/manual-usb-camera-settings-in-linux/>
+* <http://wiki.ros.org/libuvc_camera>
+* <https://askubuntu.com/questions/4875/how-can-i-use-my-webcam-with-ubuntu-running-in-virtualbox>
+* <https://msadowski.github.io/ros-web-tutorial-pt2-cameras/>
 
-## Other helpful commadns
+## Other helpful commands
 
 ```
 # list usb devices with verbose option
