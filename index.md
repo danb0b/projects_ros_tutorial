@@ -10,5 +10,5 @@ layout: home
 
 ## ROS Tutorial
 
-{% for post in site.ros %}* [{{ post.title }}]({{ post.url }})
+{% for post in site.ros %}* [{{ post.title }}]({{site.base_path}}{{ post.url }})
 {%endfor%}
